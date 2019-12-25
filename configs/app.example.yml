@@ -1,0 +1,36 @@
+---
+#app settings
+app:
+  name: gopkg
+  version: 1.1.0
+  env: local
+server:
+  port: 8000
+logging:
+  level: 5  #0 panic 0 fatal 1 error 2 warn 3 info 4 debug 5 trace 6
+  report-caller: false
+database:
+  dsn: root:@tcp(database:3306)/gopkg?parseTime=true&multiStatements=true
+  maxIndle: 10
+  maxOpen: 50
+  maxLifetime: 50  #单位秒 If d <= 0, connections are reused forever.  
+  showSQL: true
+openapi:
+  spec:
+    title: GoPackage
+    desc: Golang package manager api docs
+    contact:
+      name: yourname
+      email: your email
+      url: your url
+    version: 1.0
+  tags:
+    - name: Gopkg
+      desc: "Go语言包管理"  
+  ui:
+    api: /swagger.json
+    dist: <swagger-ui/dist/>
+    entrypoint: /apidocs/
+pkg:
+  host: pgxs.io
+...
