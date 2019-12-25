@@ -6,7 +6,7 @@ steps:
   - name: test
     image: golang
     commands:
-      - sleep 10
+      - sleep 15
       - go get -u github.com/go-bindata/go-bindata/... #install go-bindata
       - make test-all #go test
 services:
