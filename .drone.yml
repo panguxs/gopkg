@@ -1,0 +1,18 @@
+---
+kind: pipeline
+name: default
+
+steps:
+  - name: test
+    image: golang
+    commands:
+      - go get -u github.com/go-bindata/go-bindata/... #install go-bindata
+      - make test-all #go test
+services:
+  - name: database
+    image: mysql
+    ports:
+      - 3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: gopkg
